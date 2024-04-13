@@ -3,7 +3,7 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo').default(session);
 const flash = require('connect-flash');
 const passport = require('passport');
 require('./middlewares/auth')(passport);
