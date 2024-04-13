@@ -75,7 +75,7 @@ mongoose.connect(db.mongo_uri)
 })
 
 //public
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 //rotas
