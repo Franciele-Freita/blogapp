@@ -1,0 +1,78 @@
+<div>
+  <h1>
+    Editar Post
+  </h1>
+  <hr />
+  <form action="/admin/post/editar" method="POST">
+    <div class="mb-3">
+      <input type="hidden" name="id" value="{{post._id}}">
+      <label for="title" class="form-label">
+        Titulo
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        aria-describedby="categoryHelp"
+        value="{{post.title}}"
+      />
+      <div id="categoryHelp" class="form-text">
+        Informe um titulo.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">
+        Descrição
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+        aria-describedby="categoryHelp"
+        value="{{post.description}}"
+      />
+      <div id="categoryHelp" class="form-text">
+        Informe uma descrição.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">
+        Conteúdo
+      </label>
+      <textarea
+        id="content"
+        name="content"
+        class="form-control"
+        aria-describedby="categoryHelp"
+      >{{post.content}}</textarea>
+      <div id="categoryHelp" class="form-text">
+        Construa o conteudo da sua aplicação.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">
+        Categoria
+      </label>
+      <select name="category" id="category" class="form-select">
+        {{#each categories}}
+          <option {{#isEqual ../post.category._id _id}} selected {{/isEqual}} value="{{_id}}">
+            {{name}}
+          </option>
+        {{else}}
+          <option value="0">
+            Nenhuma categoria
+          </option>
+        {{/each}}
+      </select>
+      <div id="categoryHelp" class="form-text">
+        Selecione a categoria
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      Salvar post
+    </button>
+    
+  </form>
+</div>

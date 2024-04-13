@@ -1,0 +1,39 @@
+<div class="container d-flex justify-content-center">
+  <div class="box card col-6">
+    <div class="card-body">
+      <h3 class="text-center mb-4">
+        Login
+      </h3>
+
+      <form action="/auth/login" method="POST">
+        <div class="mb-3">
+          <label for="category-name" class="form-label">
+            E-mail
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="category-name"
+            name="email"
+            aria-describedby="categoryHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="category-name" class="form-label">
+            Senha
+          </label>
+          <input
+            type="password"
+            class="form-control"
+            id="category-name"
+            name="password"
+            aria-describedby="categoryHelp"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Entrar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

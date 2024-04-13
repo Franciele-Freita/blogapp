@@ -1,0 +1,23 @@
+<h1>
+  {{post.title}}
+</h1>
+<small>
+  {{post.category.name}}
+</small>
+
+<h4>
+  {{{post.description}}}
+</h4>
+
+<p>
+  {{{markdown post.content}}}
+
+</p>
+<div class="text-end">
+  <small>
+    Postado:
+    {{#dateFormatter post.date}}
+      {{post.date}}
+    {{/dateFormatter}}
+  </small>
+</div>

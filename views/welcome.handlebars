@@ -1,0 +1,124 @@
+<main>
+  <div class="card text-center mb-4">
+    <div class="card-body">
+      <div class="py-4">
+        <h2 class="m-0 p-0 lh-1 font-dancing fs-1">
+          Além da Razão
+        </h2>
+        <small class="m-0 p-0 lh-1">
+          O Jornal dos Insólitos
+        </small>
+      </div>
+      <h2 class="card-title">
+        Explorando o Inexplorado: Aventuras do Absurdo
+      </h2>
+      <p class="card-text">
+        Bem-vindo ao nosso mundo de absurdos! Aqui no nosso blog, mergulhamos de cabeça no desconhecido, explorando os cantos mais estranhos e inesperados do universo. Prepare-se para se surpreender, rir e talvez até questionar a realidade enquanto navegamos por histórias hilárias, curiosidades bizarras e pensamentos excêntricos. Junte-se a nós nesta jornada única e descubra o lado mais excêntrico da vida!
+      </p>
+      <a href="/auth/register" class="btn btn-primary">
+        Embarcar na Loucura!
+      </a>
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <div class="col col-md-8">
+        <h3>
+          Últimos Posts
+        </h3>
+        <div class="row row-cols-1">
+          {{#each posts}}
+            <div class="col mb-4">
+              <div class="card w-100" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{title}}
+                  </h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary">
+                    {{category.name}}
+                  </h6>
+                  <p class="card-text">
+                    {{description}}
+                  </p>
+                  <small></small>
+                  <a href="/post/{{_id}}" class="card-link">
+                    Leia mais
+                  </a>
+                  <hr />
+                  <div class="d-flex justify-content-between mt-2">
+                    <small>
+                      De: {{user.name}}
+                    </small>
+                    <small>
+                      {{#dateFormatter date}}
+                        {{date}}
+                      {{/dateFormatter}}
+                    </small>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          {{else}}
+            <div class="card">
+              <div class="card-body">
+                Ainda não há nenhuma postagem aqui.
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      <div class="col col-md-4">
+        <div class="position-sticky" style="top: 2rem;">
+          <h3>
+            Sobre
+          </h3>
+          <div class="card bg-light mb-4">
+            <div class="card-body">
+              Bem-vindo à nossa página de postagens! Aqui, oferecemos uma variedade de conteúdo, desde notícias até dicas úteis e inspiração. Valorizamos sua participação nos comentários. Explore nossas postagens e encontre algo interessante. Obrigado por fazer parte da nossa comunidade!
+            </div>
+          </div>
+          <h3>
+            Categorias
+          </h3>
+          <div class="card mb-4">
+            <div class="card-body">
+              <ul class="list-unstyled">
+              {{#each categories}}
+                <li>
+                  <a href="" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                    {{name}}
+                  </a>
+                </li>
+                {{else}}
+                <li>Nenhuma categoria encontrada</li>
+              {{/each}}
+              </ul>
+            </div>
+          </div>
+          <h3>
+            Autores
+          </h3>
+          <div class="card">
+            <div class="card-body">
+              {{#each users}}
+              <p class="p-0 m-0">
+                {{name}}
+              </p>
+              <small class="d-block small opacity-50">
+                {{role}}
+              </small>
+              <small class="d-block small opacity-50">
+                desde: {{#dateFormatter date}}{{date}}{{/dateFormatter}}
+              </small>
+              <hr />
+              {{else}}
+              Nenhum autor foi encontrado
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

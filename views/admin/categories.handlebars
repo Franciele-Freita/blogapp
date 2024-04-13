@@ -1,0 +1,26 @@
+<div>
+  <h1>Categorias</h1>
+  <hr>
+  <a class="btn btn-primary" href="/admin/categoria/adicionar">Nova categoria</a>
+  <hr>
+  {{#each categories}}
+  <div class="card mb-2">
+    <div class="card-body">
+      <h4>{{name}}</h4>
+      <small>{{description}}</small>
+    <div class="mt-2 d-flex gap-2">
+      <a class="text-decoration-none" href="/admin/categoria/editar/{{_id}}">
+      <button class="btn btn-success">Editar</button>
+    </a>
+      
+      <form action="/admin/categoria/delete" method="POST">
+      <input type="hidden" name="id" value="{{_id}}">
+      <button type="submit" class="btn btn-danger">Excluir</button>
+      </form>
+    </div>
+    </div>
+  </div>
+  {{else}}
+  <h4>Nenhuma categoria registrada</h4>
+  {{/each}}
+</div> 

@@ -1,0 +1,31 @@
+<div>
+  <h1>Posts</h1>
+  <hr>
+  <a class="btn btn-primary" href="/admin/post/adicionar">Novo post</a>
+  <hr>
+  {{#each posts}}
+    <div class="card mb-2">
+    <div class="card-body">
+      <h4>{{title}}</h4>
+      <small>{{description}}</small>
+      <br>
+      <small>{{category.name}}</small>
+      <br>
+      <small>{{#dateFormatter date}}{{date}}{{/dateFormatter}}</small>
+    <div class="mt-2 d-flex gap-2">
+      <a class="text-decoration-none" href="/admin/post/editar/{{_id}}">
+      <button class="btn btn-success">Editar</button>
+    </a>
+      
+      <form action="/admin/post/delete" method="POST">
+      <input type="hidden" name="id" value="{{_id}}">
+      <button type="submit" class="btn btn-danger">Excluir</button>
+      </form>
+    </div>
+    </div>
+  </div>
+  {{else}}
+    <h4>Nenhum post registrado</h4>
+  {{/each}}
+  
+</div>

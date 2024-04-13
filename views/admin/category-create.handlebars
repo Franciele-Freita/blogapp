@@ -1,0 +1,19 @@
+<div>
+  <h1>Nova Categoria</h1>
+  <hr>
+  <form action="/admin/categoria/adicionar" method="POST">
+  <div class="mb-3">
+    <label for="category-name" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="category-name"  name="name" aria-describedby="categoryHelp">
+    <div id="categoryHelp" class="form-text">Informe uma categoria.</div>
+  </div>
+  <div class="mb-3">
+    <label for="category-name" class="form-label">Descrição</label>
+    <div class="">
+      <textarea class="form-control" placeholder="Sua descrição aqui" id="category-name" name="description" style="height: 100px" aria-describedby="descriptionCategoryHelp"></textarea>
+      <div id="descriptionCategoryHelp" class="form-text">Faça uma breve descrição.</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+</div>
