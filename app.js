@@ -60,6 +60,9 @@ const hbs = handlebars.create({
   layoutsDir: __dirname + '/views/layouts/',
   partialsDir: __dirname + '/views/partials/'
 })
+
+app.set("views", __dirname + "/views");
+
 app.engine('handlebars', hbs.engine);
 
 app.set('view engine', 'handlebars');
