@@ -3,7 +3,7 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session); // Altere aqui
+const MongoStore = require('connect-mongo'); // Altere aqui
 const flash = require('connect-flash');
 const passport = require('passport');
 require('./middlewares/auth')(passport);
@@ -23,7 +23,9 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: true,
   saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
+  store: new MongoStore({ // Criando uma instância de MongoStore sem a função connectMongo
+    mongoUrl: db.mongo_uri // Defina aqui a sua URL do MongoDB
+  })
 }))
 
 app.use(passport.initialize());
