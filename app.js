@@ -2,19 +2,20 @@ const express = require('express');
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const app = express();
-const routes =require('./routes');
-const path = require("path");
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
-const isEqualHelper = require('./helpers/isEqual');
-const dateFormatter = require('./helpers/dateFormatter');
-const markdown = require('helper-markdown');
 const passport = require('passport');
 require('./middlewares/auth')(passport);
 require('dotenv').config();
 const db = require('./config/db');
+const routes =require('./routes');
+const path = require("path");
+const isEqualHelper = require('./helpers/isEqual');
+const dateFormatter = require('./helpers/dateFormatter');
+const markdown = require('helper-markdown');
 
+const app = express();
 
 //config
 //session
@@ -22,6 +23,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: true,
   saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 
 app.use(passport.initialize());
