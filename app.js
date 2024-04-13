@@ -50,12 +50,15 @@ app.use(bodyParser.json());
 
 //Handlebars
 const hbs = handlebars.create({
+  extname: '.handlebars',
   defaultLayout: 'main',
   helpers: {
     isEqual: isEqualHelper,
     dateFormatter: dateFormatter,
     markdown: markdown
-  }
+  },
+  layoutsDir: __dirname + '/views/layouts/',
+  partialsDir: __dirname + '/views/partials/'
 })
 app.engine('handlebars', hbs.engine);
 
